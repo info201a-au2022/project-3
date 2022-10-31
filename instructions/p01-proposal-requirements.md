@@ -9,14 +9,14 @@
 
 |Element | Brief Description|
 |---------------| --------------
-|Code name |Cool Name Group |
+|Code name |Code Name|
 |Project title| HIV/AIDS Cases Among the Living and the Not |
 |Authors | Olivia Cooper (coopoli@uw.edu), Caprice Culkin (capricec@uw.edu), |
 |Affiliation |  INFO-201: Technical Foundations of Informatics - The Information School - University of Washington |
 |Date | Autumn 2022|
-|Abstract | Write a short abstract of three sentences. Your abstract should summarize your entire project, but only the very most important aspects. Here are two examples of how you might structure your abstract: **(1)** "Our main question is .... This question is important because .... To address the question, we will ...." and **(2)** "We are concerned with ..., because .... To address this concern, we plan to ...." |
-|Keywords | 3-5 keywords that summarize your project.  (e.g., "Keywords: human physiology; bicycle exercise; elderly; power and heart rate times-series data") |
-|Introduction | Briefly introduce your project. (About 150 words.) |
+|Abstract |  Our main question is: is there a correlation between number of HIV/AIDS deaths and cases by country relating to pediatric coverage and prevention of mother to child transmission? This question is important because it brings out whether preventative public health measures by country have an impact on the HIV/AIDS epidemic. To address the question, we will examine datasets and disparities between multiple countries and see if there is a connection in the data given.
+|Keywords | 1. HIV/AIDS 2. Public Health 3. Preventative Measures |
+|Introduction | This project will examine the relationship between number of HIV/AIDS cases (adults 15-19) by country, number of deaths by country, number of people living with HIV by country, as well as contrasting it to prevention of mother to child transmission by country and pediatric coverage by country. We are looking to see if there is any correlation between these variables and overall see if different countries' public health measures can lead to less deaths/cases of HIV/AIDS. |
 |Problem Domain | Use short sub-sections to describe your topic and the setting (that is, the sociotechnical situation), including project framing, human values, direct and indirect stakeholders, possible harms and benefits. See the Design Brief, section B.3. **Note**: You *must* include three citations to related work (URLs to similar work, high quality articles from the popular press, reseach papers, etc. ). You may find it helpful to include a figure.  (About 400 words.) |
 |Research Questions | Present your 3-5 research questions.  You should present each research question.  For each research question, you should discuss why it is important and what motivates the question. (About 50 words for each question, so for four questions you would write about 200 words or more if needed.) |
 |The Dataset | **(1)** Describe how your dataset is related to your problem domain and, specifically, to your research qeustions. That is, how will your dataset enable you to answer your research questions? **(2)** Include a table that presents the name of each data file, the number of observations (rows), and the number of variables (columns). **(3)** Include a full citation to each data file, including URL. **(4)** Finally, describe the provenance of your dataset, addressing such key questions as: (a) Who collected the data? When? For what purpose? (b) How was the data collection effort funded? Who is likely to benefit from the data or make money? (c) How was the data validated and held secure?  Is it credible and trustworthy? (d) How did you obtain the data? Do you credit the source of the data? (About 400 words.) |
