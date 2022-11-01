@@ -11,7 +11,7 @@
 |---------------| --------------
 |Code name |Code Name|
 |Project title| HIV/AIDS Cases Among the Living and the Not |
-|Authors | Olivia Cooper (coopoli@uw.edu), Caprice Culkin (capricec@uw.edu), |
+|Authors | Olivia Cooper (coopoli@uw.edu), Caprice Culkin (capricec@uw.edu), Karina Amaya (kyb3@uw.edu), Nahom Mehari (nahomm4@uw.edu) |
 |Affiliation |  INFO-201: Technical Foundations of Informatics - The Information School - University of Washington |
 |Date | Autumn 2022|
 |Abstract |  Our main question is as follows: is there a correlation between the number of HIV/AIDS deaths and cases by country relating to pediatric coverage and prevention of mother to child transmission? This question is important because it brings out whether preventative public health measures by country have an impact on the HIV/AIDS epidemic. To address the question, we will examine datasets and disparities between multiple countries and see if there is a connection in the data given. We will see if there is a correlation between higher number of cases/deaths and lower preventative measures, or not after sorting through the data.
