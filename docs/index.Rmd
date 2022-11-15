@@ -70,5 +70,15 @@ ggplot(HIV_AIDS_dataset, aes(x=as.factor(Country), y=Count_median)) +
 ```
 This chart represents the relationship between different countries and their respective median number of people living with HIV in their countries.
 
+```{r}
+mother_to_child <- read_csv("~/Documents/info201/project-group-4-section-ab/data/prevention_mother_to_child.csv")
+
+counts <- table(prevention_mother_to_child$`Received Antiretrovirals`)
+barplot(counts, main = "Recieved Antiretrovirals",
+        xlab = "Mother to Child Transmission Prevention")
+
+```
+
+
 
 >>>>>>> 833a4232af707916214b7eb706146b561d7f162c
