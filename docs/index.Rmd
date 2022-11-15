@@ -52,6 +52,16 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<<<<<<< HEAD
+```{r}
+deaths <- read_csv("~/Documents/info201/project-group-4-section-ab/data/no_of_deaths_by_country_clean.csv")
+
+frequencies_of_median_deaths_per_country <- deaths$Count_median
+
+hist(frequencies_of_median_deaths_per_country)
+
+```
+=======
 
 ```{r}
 ggplot(HIV_AIDS_dataset, aes(x=as.factor(Country), y=Count_median)) + 
@@ -61,3 +71,4 @@ ggplot(HIV_AIDS_dataset, aes(x=as.factor(Country), y=Count_median)) +
 This chart represents the relationship between different countries and their respective median number of people living with HIV in their countries.
 
 
+>>>>>>> 833a4232af707916214b7eb706146b561d7f162c
