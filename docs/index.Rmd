@@ -21,6 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Example 1: Note relative path, which can be read: Up one
 # directory(..), down into source (/source), and 
 # then "source" an R file (data_access.R)
+library(tidyverse)
 source("../source/data_access.R")
 data_access_test()
 ```
@@ -52,3 +53,42 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+summary_info <- list(ratio_between_needing_receiving, cases_adults_age_summarize,
+                     deaths_by_country_summarize, ratio_between_cases_deaths, people_living_wHIV_summary,
+                     ratio_of_needing_receiving)
+Summary_info
+
+```
+The information summarized includes anti retro-viral therapy (ART) among children, prevalence of HIV among adults aged 15 to 49 in different countries, number of deaths due to HIV/AIDS, number of people living with HIV, number of pregnant women living with HIV who received anti retro-viral therapy for preventing mother-to-child transmission. More specifically we focus on six different values within these data sets. The first one is the ratio of children who need ART and those who have received it, being `r ratio_between_needing_receiving `. This shows the difference between the two, where there are many more people who need ART and only a small percent of children are actually receiving it. The second is the average cases of HIV/AIDS in adults across the world. The average is `r cases_adults_age_summarize `. The third value focuses on the average number of deaths across the world. The average number of deaths is `r deaths_by_country_summarize `. The fourth value is a combination of both the average cases in adults across the world and average deaths across the world. It is a ratio between the two which is `r ratio_between_cases_deaths`. The fifth value is the average of people living with HIV across the world. The average of people living with HIV is `r people_living_wHIV_summary`. The final value is `rratio_of_needing_receiving`. This represents the ratio of mothers receiving ART and those who are needing ART. Very similar to children receiving/needing ART, there is a huge difference. Where more mothers need ART but only a small portion is actually receiving it. This could have a huge effect on the transmission of HIV/AIDS to children being born.
+
+```{r}
+deaths <- read_csv("../data/no_of_deaths_by_country_clean.csv")
+
+frequencies_of_median_deaths_per_country <- deaths$Count_median
+
+hist(frequencies_of_median_deaths_per_country)
+
+```
+=======
+Instead of a focus on countries, I decided to show how the frequencies of the amount of median deaths per countries exists. It is interesting because it showed lower frequencies of more death rates.
+
+```{r}
+ggplot(HIV_AIDS_dataset, aes(x=as.factor(Country), y=Count_median)) + 
+  geom_boxplot(fill="slateblue", alpha=0.2) + 
+  xlab("Country")
+```
+This chart represents the relationship between different countries and their respective median number of people living with HIV in their countries. It displays a ton of information and really shows where the outliers are in this dataset.
+
+```{r}
+mother_to_child <- read_csv("../data/prevention_mother_to_child.csv")
+
+counts <- table(prevention_mother_to_child$`Received Antiretrovirals`)
+barplot(counts, main = "Recieved Antiretrovirals",
+        xlab = "Mother to Child Transmission Prevention")
+
+```
+
+This chart focuses on the prevention of mother to child transmission specifically pertaining to the number of recieved antiretrovirals for each country. It displayed really interesting disparities between the number recieved between the different countries.
+
