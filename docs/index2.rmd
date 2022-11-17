@@ -52,7 +52,7 @@ boxplot %>%
 ```
 
 ```{r boxplot, echo=FALSE, message=FALSE, warning=FALSE}
-histogram %>%
+Histogram.R %>%
   kbl() %>%
   kable_styling()
 
