@@ -41,22 +41,23 @@ table1 %>%
   kable_styling()
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
 ```{r boxplot, echo=FALSE, message=FALSE, warning=FALSE}
 boxplot %>%
   kbl() %>%
   kable_styling()
 ```
-
+This chart represents the relationship between different countries and their respective median number of people living with HIV in their countries. It displays a ton of information and really shows where the outliers are in this dataset.
 ```{r boxplot, echo=FALSE, message=FALSE, warning=FALSE}
 Histogram.R %>%
   kbl() %>%
   kable_styling()
-
 ```
-  
 # This graph compared to the others showed the frequency of deaths by HIV, rather than by individual country. There is a big chunk for the first amount and it plummets after that with less frequencies of more deaths by HIV in countries.
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r barplot, echo=FALSE, message=FALSE, warning=FALSE}
+barplot %>%
+  kbl() %>%
+  kable_styling()
+```
+  This chart focuses on the prevention of mother to child transmission specifically pertaining to the number of recieved antiretrovirals for each country. It displayed really interesting disparities between the number recieved between the different countries.
+
+
