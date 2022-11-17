@@ -1,0 +1,47 @@
+---
+title: "Project 2 Propsal"
+output: html_document
+date: "2022-11-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("../data/Table_File.R")
+source("../source/data_access.R")
+source("../source/summary-information.R")
+
+data_access_test()
+
+```
+
+### HIV/AIDS Cases & Preventative Measures Among the Living and the Not
+
+#### Code Name: HIV/AIDS Information
+#### Authors: Olivia Cooper (coopoli@uw.edu), Caprice Culkin (capricec@uw.edu), Karina Amaya (kyb3@uw.edu), Nahom Mehari (nahomm4@uw.edu) 
+#### Affiliation: INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+#### Date: Autumn 2022
+
+## Abstract:
+Our main question is as follows: is there a correlation between the number of HIV/AIDS deaths and cases by country relating to pediatric coverage and prevention of mother to child transmission? This question is important because it brings out whether preventative public health measures by country have an impact on the HIV/AIDS epidemic. To address the question, we will examine datasets and disparities between multiple countries and see if there is a connection in the data given. We will see if there is a correlation between higher number of cases/deaths and lower preventative measures, or not after sorting through the data.
+Keywords: 1. HIV/AIDS 2. Public Health 3. Preventative Measures
+Introduction: This project will examine the relationship between number of HIV/AIDS cases (adults 15-19) by country, number of deaths by country, number of people living with HIV by country, as well as contrasting it to prevention of mother to child transmission by country and pediatric coverage by country. We are looking to see if there is any correlation between these variables and overall see if different countries' public health measures can lead to less deaths/cases of HIV/AIDS. 
+Problem Domain: Through the analysis and collection of data on HIV/AIDS, we can determine correlations of cases that have been affected by the presence of lack of quality pediatric health coverage as well as the transmission of the disease from mother to child. 
+Human Values: We take into consideration how the HIV/AIDS epidemic has had such an immense impact on individuals and families around the world and it continues to do so even as data on these diseases continue to emerge. 
+Direct and Indirect Stakeholders: The direct stakeholders are people who have gathered and reported data on HIV/AIDS. This also includes individuals who have tested positive and reported the test. Indirect stakeholders are the individuals who created the website with information on it and the users of the website. This may or may not be direct to them because they are the ones who created the website, not the ones impacted by HIV themselves. Another indirect stakeholder is the medical personnel where a part of their
+
+
+```{r cars, echo=FALSE, message=FALSE, warning=FALSE}
+table1 %>%
+  kbl() %>%
+  kable_styling()
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
