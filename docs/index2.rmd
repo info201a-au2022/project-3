@@ -13,7 +13,8 @@ source("../data/Table_File.R")
 source("../source/data_access.R")
 source("../source/summary-information.R")
 source("../source/boxplot.r")
-source("../source/barplot.r")
+#source("../source/barplot.r")
+source("../source/Histogram.R")
 data_access_test()
 
 ```
@@ -49,5 +50,10 @@ boxplot %>%
   kbl() %>%
   kable_styling()
 ```
-
+{r boxplot, echo=FALSE, message=FALSE, warning=FALSE}
+histogram %>%
+  kbl() %>%
+  kable_styling()
+  
+# This graph compared to the others showed the frequency of deaths by HIV, rather than by individual country. There is a big chunk for the first amount and it plummets after that with less frequencies of more deaths by HIV in countries.
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
