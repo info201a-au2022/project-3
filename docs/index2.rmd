@@ -3,13 +3,17 @@ title: "Project 2 Propsal"
 output: html_document
 date: "2022-11-17"
 ---
+```{r}
+install.packages("kableExtra")
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("../data/Table_File.R")
 source("../source/data_access.R")
 source("../source/summary-information.R")
-
+source("../source/boxplot.r")
+source("../source/barplot.r")
 data_access_test()
 
 ```
@@ -40,8 +44,10 @@ table1 %>%
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r boxplot, echo=FALSE, message=FALSE, warning=FALSE}
+boxplot %>%
+  kbl() %>%
+  kable_styling()
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
