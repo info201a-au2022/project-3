@@ -1,14 +1,35 @@
-# Define server logic required to draw a histogram
+#source files
+source("../source/Children ART.R")
+#CSV files
+estimates <- read.csv("../data/art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
+
 server <- function(input, output) {
   
-  output$distPlot <- renderPlot({
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+-------------------------------------------------------------------------------------------------------
+ #Karina's plot   
+  output$selectCountry <- renderUI({
+    selectInput("Country", "Select Country", choices = unique(estimates$Country))
+  })               
+
+  children_art_plot <- reactive({
+    art_plot <- children_art %>% 
+      filter(Country %in% input$Country)
     
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white',
-         xlab = 'Waiting time to next eruption (in mins)',
-         main = 'Histogram of waiting times')
+    ggplot(data = art_plot) +
+      geom_col(mapping = aes(x = Country,y = Count, fill = Type), position = "dodge") +
+      scale_fill_manual(values = c("#6D2E46", "#EC7505")) +
+      labs(title = "Children Receiving ART vs. Children Needing ART") +
+      scale_y_continuous(labels = scales::comma) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
   })
-}
+  output$CountryPlot <- renderPlot({
+    children_art_plot()
+  })
+} 
+-------------------------------------------------------------------------------------------------------  
+  
+
+ 
+  
+
+
