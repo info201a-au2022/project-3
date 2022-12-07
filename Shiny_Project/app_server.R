@@ -3,12 +3,9 @@ source("../source/Children ART.R")
 
 #CSV files
 estimates <- read.csv("../data/art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
-
-#HIV_AIDS_dataset <- read.csv("~/Documents/info201/project-group-4-section-ab/data/no_of_people_living_with_hiv_by_country_clean.csv")
-#deaths_dataset <- read.csv("~/Documents/info201/project-group-4-section-ab/data/no_of_deaths_by_country_clean.csv")
 HIV_AIDS_dataset <- read.csv("../data/no_of_people_living_with_hiv_by_country_clean.csv")
 deaths_dataset <- read.csv("../data/no_of_deaths_by_country_clean.csv")
-prevention_mother_to_child <- read.csv('prevention_mother_to_child.csv')
+prevention_mother_to_child <- read.csv("../data/prevention_mother_to_child.csv")
 
 server <- function(input, output) {
   
@@ -17,22 +14,16 @@ server <- function(input, output) {
   output$selectCountry <- renderUI({
     selectInput("Country", "Select Country", choices = unique(children_art$Country))
   })               
-
-  children_art_plot <- reactive({
+  output$CountryPlot <- renderPlotly({
     art_plot <- children_art %>% 
       filter(Country %in% input$Country)
-    
-    ggplot(data = art_plot) +
+    children_art_plot <- ggplot(data = art_plot) +
       geom_col(mapping = aes(x = Country,y = Count, fill = Type), position = "dodge") +
       scale_fill_manual(values = c("#6D2E46", "#EC7505")) +
       labs(title = "Children Receiving ART vs. Children Needing ART") +
-      scale_y_continuous(labels = scales::comma) #+
-      #theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+      scale_y_continuous(labels = scales::comma)
+    return(children_art_plot)
   })
-  output$CountryPlot <- renderPlot({
-    children_art_plot()
-  })
- 
 #-------------------------------------------------------------------------------------------------------  
 ### Caprices code for the graph
 
@@ -58,14 +49,16 @@ deaths_and_cases <-  combined_one %>%
   geom_point () +
   theme_bw()
 
-}
 #----------------------------------------------------------------------------------------------------------
 # Olivia's code for the map
+library(maps)
+library(readr)
+library(leaflet)
+library(dplyr)
 us_map_data <- prevention_mother_to_child %>%
   select(Country, Percentage.Recieved_max) %>%
   group_by(Country) %>%
   na.omit()
-
 
 data(world.cities)
 
@@ -79,7 +72,5 @@ df <- world.cities %>%
 percent_received <- leaflet(df)%>%
   addTiles()%>%
   addMarkers(label = ~Percentage.Recieved_max) 
- 
-  
-
-
+}
+#testing
