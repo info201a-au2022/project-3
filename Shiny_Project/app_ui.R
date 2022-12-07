@@ -1,8 +1,8 @@
 library(shiny)
------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
 ## INTRO
   
-  Intro <- tabPanel(
+ Intro <- tabPanel(
     "Intro", 
     p("To begin this project was used to collect different data on the number of people living with HIV/AIDS vs the number of deaths caused from the disease.To summarize, this project was created with the intention of showing visualization that analyze the difference between the population of people living with the disease, compared to those who are dead due to the disease."),
     p("The problem domain of this project is to analyze the number of HIV cases and deaths, based on the ratio or percentage of which that population in each respective state is affected."),
@@ -11,7 +11,7 @@ library(shiny)
     p("The key findings throughout this project was the number of cases to deaths of a certain states population .We can show that through our visualizations by selecting whichever state we are interested in, within our scatterplot frame which then will return points on the graph which explain the ratio of number of deaths or people living with HIV as you decide to choose.")
   )
 
---------  
+#------------------------------------------------------------------------------------------ 
   
   ### Karinas Page
   
@@ -27,7 +27,7 @@ plotOutput("CountryPlot")
     )
   )
 )
------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
 ### Caprices UI
 
 interactive_page2 <- tabPanel(
@@ -49,9 +49,10 @@ interactive_page2 <- tabPanel(
     )
   )
   
------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
 ui <- navbarPage("HIV/AIDS Cases & Preventative Measures Among the Living and the Not",
                  theme = shinythemes::shinytheme("cosmo"),
+                 Intro,
                  interactive_page2,
                  interactive_page3,
 )
