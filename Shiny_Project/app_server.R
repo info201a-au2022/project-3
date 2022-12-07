@@ -1,3 +1,12 @@
+#libraries
+library(shiny)
+library(ggplot2)
+library(leaflet)
+library(tidyverse)
+library(maps)
+library(readr)
+library(plotly)
+
 #source files
 source("../source/Children ART.R")
 
@@ -72,4 +81,3 @@ percent_received <- leaflet(df)%>%
   addTiles()%>%
   addMarkers(label = ~Percentage.Recieved_max) 
 }
-#testing

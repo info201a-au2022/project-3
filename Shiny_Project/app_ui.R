@@ -1,5 +1,10 @@
 library(shiny)
+library(ggplot2)
 library(leaflet)
+library(tidyverse)
+library(maps)
+library(readr)
+library(plotly)
 #-----------------------------------------------------------------------------------------
 ## INTRO
   
@@ -18,22 +23,22 @@ library(leaflet)
   
   ### Karinas Page
   
-interactive_page1 <- tabPanel(
-  "Antiretroviral in Children",
-  titlePanel("Antiretroviral Distribution Among Children"),
-sidebarLayout(
-sidebarPanel(
-      uiOutput("selectCountry")
-),
-mainPanel(
-plotlyOutput(outputId = "CountryPlot"),
-mainPanel(
-  p("     The bar chart compares the amount of children who need antiretrovirals and those who are receiving antiretrovirals (estimated). The chart allows for a country distribution to be shown. Some countries lack the children who need ART bar or the children receiving ART. This is due to the lack of data given, some countries did not report those numbers, but it is still important to take into account the data that is shown."),
-  p("     For most if not all countries, we can see the comparison of children who need ART and those who are receiving ART, and it shows the disparity between the two variables. This could be due to the fact that many people with HIV/AIDS around the world don’t have access to healthcare or don’t have the resources to afford healthcare. Other barriers can include cultural or religious factors. As well as discrimination people may face. It is important that children have access to ART and it is also important to bring more awareness to this issue that people are facing.")
-
-    )
-  )
-))
+ interactive_page1 <- tabPanel(
+   "Antiretroviral Therapy in Children",
+   titlePanel("Antiretroviral Therapy Distribution Among Children with HIV"),
+   sidebarLayout(
+     sidebarPanel(
+       uiOutput("selectCountry")
+     ),
+     mainPanel(
+       plotlyOutput(outputId = "CountryPlot"),
+       mainPanel(
+         p("     The bar chart compares the amount of children with HIV who need antiretroviral therapy and those who are receiving antiretroviral therapy (estimated). The chart allows for a country distribution to be shown. Some countries lack the children who need ART bar or the children receiving ART. This is due to the lack of data given, some countries did not report those numbers, but it is still important to take into account the data that is shown."),
+         p("     For most if not all countries, we can see the comparison of children who need ART and those who are receiving ART, and it shows the disparity between the two variables. This could be due to the fact that many people with HIV/AIDS around the world don’t have access to healthcare or don’t have the resources to afford healthcare. Other barriers can include cultural or religious factors. As well as discrimination people may face. It is important that children have access to ART and it is also important to bring more awareness to this issue that people are facing.")
+         
+       )
+     )
+   ))
 #-----------------------------------------------------------------------------------------
 ### Caprices UI
 
@@ -61,8 +66,8 @@ interactive_page2 <- tabPanel(
 interactive_page3 <- tabPanel(
   "Antiretrovirals Received Map",
   titlePanel("Percentage of Antiretrovirals Received by Country"),
-  mainPanel(
-    leafletOutput(percent_received)),
+  #mainPanel(
+  #  leafletOutput(percent_received)),
   mainPanel(
     br(),
     br(),
