@@ -68,7 +68,6 @@ df <- world.cities %>%
   left_join(us_map_data, by = "Country") %>%
   na.omit()
 
-# now map the result
 percent_received <- leaflet(df)%>%
   addTiles()%>%
   addMarkers(label = ~Percentage.Recieved_max) 

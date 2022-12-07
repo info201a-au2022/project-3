@@ -59,12 +59,19 @@ interactive_page2 <- tabPanel(
 ## Olivia's UI
 
 interactive_page3 <- tabPanel(
-  "Percentage of Antiretrovirals Received Map",
+  "Antiretrovirals Received Map",
   titlePanel("Percentage of Antiretrovirals Received by Country"),
   mainPanel(
-    leafletOutput(percent_received)
+    leafletOutput(percent_received)),
+  mainPanel(
+    br(),
+    br(),
+    p("This map shows the percentage of Antiretrovirals received by country out of how many that country needed. This means that the numbers shown as you hover over a country, represent the percentage of antiretrovirals received out of how many that country actually needed. This map shows the disparities between countries in terms of which ones receive acceptable numbers of antiretrovirals in terms of their need. This map also shows the countries that are most affected by the HIV/AIDs epidemic.")),
+  mainPanel(
+  br(),
+  p("Some important trends to note on this map include which individual regions seem to have the lowest percentages consistently. A lot of countries sit around 95% received. However, places across Western Africa and Northern Africa see very low percentages as well as countries in the Middle East such as Pakistan."))
   )
-)
+
 
 #-----------------------------------------------------------------------------------------
 summary <- tabPanel(
