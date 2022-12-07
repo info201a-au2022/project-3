@@ -8,6 +8,7 @@ estimates <- read.csv("../data/art_pediatric_coverage_by_country_clean.csv", str
 #deaths_dataset <- read.csv("~/Documents/info201/project-group-4-section-ab/data/no_of_deaths_by_country_clean.csv")
 HIV_AIDS_dataset <- read.csv("../data/no_of_people_living_with_hiv_by_country_clean.csv")
 deaths_dataset <- read.csv("../data/no_of_deaths_by_country_clean.csv")
+prevention_mother_to_child <- read.csv('prevention_mother_to_child.csv')
 
 server <- function(input, output) {
   
@@ -59,7 +60,25 @@ deaths_and_cases <-  combined_one %>%
 
 }
 #----------------------------------------------------------------------------------------------------------
+# Olivia's code for the map
+us_map_data <- prevention_mother_to_child %>%
+  select(Country, Percentage.Recieved_max) %>%
+  group_by(Country) %>%
+  na.omit()
 
+
+data(world.cities)
+
+df <- world.cities %>%
+  filter(capital == 1) %>%
+  select(Country = country.etc, lat, lng = long) %>%
+  left_join(us_map_data, by = "Country") %>%
+  na.omit()
+
+# now map the result
+percent_received <- leaflet(df)%>%
+  addTiles()%>%
+  addMarkers(label = ~Percentage.Recieved_max) 
  
   
 

@@ -48,6 +48,17 @@ interactive_page2 <- tabPanel(
       p(p("You can see a mainly positive growth and correlation between deaths and number of cases, and although this is a correlation it does represent something super important as the disease is deadly. For example the 12 year survival rate is only about 19% respectively. Drawing attention towards this deadly disease and bringing public health initiatives is huge, also because the main countries that are impacted by it are in the global south."))
     )
   )
+
+#------------------------------------------------------------------------------------------
+## Olivia's UI
+
+interactive_page3 <- tabPanel(
+  "Percentage of Antiretrovirals Received Map",
+  titlePanel("Percentage of Antiretrovirals Received by Country"),
+  mainPanel(
+    plotOutput(percent_received)
+  )
+)
   
 #-----------------------------------------------------------------------------------------
 ui <- navbarPage("HIV/AIDS Cases & Preventative Measures Among the Living and the Not",
