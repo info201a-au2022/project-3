@@ -66,8 +66,8 @@ interactive_page2 <- tabPanel(
 interactive_page3 <- tabPanel(
   "Antiretrovirals Received Map",
   titlePanel("Percentage of Antiretrovirals Received by Country"),
-  #mainPanel(
-  #  leafletOutput(percent_received)),
+  mainPanel(
+  percent_received),
   mainPanel(
     br(),
     br(),
