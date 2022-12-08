@@ -65,7 +65,7 @@ library(readr)
 library(leaflet)
 library(dplyr)
 us_map_data <- prevention_mother_to_child %>%
-  select(Country, Percentage.Recieved_max) %>%
+  select(Country, Percentage.Recieved_median) %>%
   group_by(Country) %>%
   na.omit()
 
@@ -79,5 +79,5 @@ df <- world.cities %>%
 
 percent_received <- leaflet(df)%>%
   addTiles()%>%
-  addMarkers(label = ~Percentage.Recieved_max) 
+  addMarkers(label = ~Percentage.Recieved_median) 
 }
