@@ -8,18 +8,20 @@ library(readr)
 library(plotly)
 
 #source files
-source("../source/Children ART.R")
+source("Children ART.R")
 
 #CSV files
-estimates <- read.csv("../data/art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
-HIV_AIDS_dataset <- read.csv("../data/no_of_people_living_with_hiv_by_country_clean.csv")
-deaths_dataset <- read.csv("../data/no_of_deaths_by_country_clean.csv")
-prevention_mother_to_child <- read.csv("../data/prevention_mother_to_child.csv")
+estimates <- read.csv("art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
+HIV_AIDS_dataset <- read.csv("no_of_people_living_with_hiv_by_country_clean.csv")
+deaths_dataset <- read.csv("no_of_deaths_by_country_clean.csv")
+prevention_mother_to_child <- read.csv("prevention_mother_to_child.csv")
 
 server <- function(input, output) {
   
 #-------------------------------------------------------------------------------------------------------
- #Karina's plot   
+  #renaming certain columns
+  
+   #Karina's plot   
   output$selectCountry <- renderUI({
     selectInput("Country", "Select Country", choices = unique(children_art$Country))
   })               
