@@ -5,9 +5,9 @@ account: karinaa
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7835692
-bundleId: 6624999
+bundleId: 6625083
 url: https://karinaa.shinyapps.io/Shiny_Project/
-when: 1670812832.12875
-lastSyncTime: 1670812832.12878
+when: 1670814337.71968
+lastSyncTime: 1670814337.71971
 asMultiple: FALSE
 asStatic: FALSE

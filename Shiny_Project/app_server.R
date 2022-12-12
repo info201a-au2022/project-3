@@ -50,14 +50,10 @@ no_of_deaths <- data.frame(deaths_dataset$Country, deaths_dataset$Count_median) 
 
 combined_one <- left_join(no_of_hiv_aids_cases, no_of_deaths)
 
-output$Countryselect <- renderUI({
-  selectInput("Country", "Select Country", choices = unique(combined_one$Country))
-})
-
 output$CdPlot <- renderPlotly({
   deaths_and_cases <- combined_one %>%
     filter() %>%
-    filter(Country %in% input$Country) %>% 
+ 
     ggplot( aes(x = `Median Number of HIV/AIDS Cases`, y = `Median Number of Deaths`, color = Country)) +
     xlab("HIV/AIDS Median Cases") +
     ylab("Median Number of Deaths") +
