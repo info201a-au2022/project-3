@@ -7,6 +7,7 @@ library(maps)
 library(readr)
 library(plotly)
 
+
 #source files
 source("Children ART.R")
 
@@ -19,8 +20,6 @@ prevention_mother_to_child <- read.csv("prevention_mother_to_child.csv")
 server <- function(input, output) {
   
 #-------------------------------------------------------------------------------------------------------
-  #renaming certain columns
-  
    #Karina's plot   
   output$selectCountry <- renderUI({
     selectInput("Country", "Select Country", choices = unique(children_art$Country))
@@ -37,13 +36,12 @@ server <- function(input, output) {
   })
 #-------------------------------------------------------------------------------------------------------  
 ### Caprices code for the graph
-
-no_of_hiv_aids_cases <- data.frame(HIV_AIDS_dataset$Country, HIV_AIDS_dataset$Count_median) %>%
-  group_by(HIV_AIDS_dataset.Country) %>%
-  summarise(Median_HIV_ADIS_cases = sum(HIV_AIDS_dataset.Count_median)) %>%
-  rename("Country" = "HIV_AIDS_dataset.Country",
-         "Median Number of HIV/AIDS Cases" = "Median_HIV_ADIS_cases")
-
+  no_of_hiv_aids_cases <- data.frame(HIV_AIDS_dataset$Country, HIV_AIDS_dataset$Count_median) %>%
+    group_by(HIV_AIDS_dataset.Country) %>%
+    summarise(Median_HIV_ADIS_cases = sum(HIV_AIDS_dataset.Count_median)) %>%
+    rename("Country" = "HIV_AIDS_dataset.Country",
+           "Median Number of HIV/AIDS Cases" = "Median_HIV_ADIS_cases")
+  
 no_of_deaths <- data.frame(deaths_dataset$Country, deaths_dataset$Count_median) %>%
   group_by(deaths_dataset.Country) %>%
   summarise(Median_deaths = sum(deaths_dataset.Count_median)) %>%
@@ -52,20 +50,24 @@ no_of_deaths <- data.frame(deaths_dataset$Country, deaths_dataset$Count_median) 
 
 combined_one <- left_join(no_of_hiv_aids_cases, no_of_deaths)
 
-deaths_and_cases <-  combined_one %>%
-  filter() %>%
-  ggplot( aes(x = `Median Number of HIV/AIDS Cases`, y = `Median Number of Deaths`, color = Country)) +
-  xlab("HIV/AIDS Median Cases") +
-  ylab("Median Number of Deaths") +
-  geom_point () +
-  theme_bw()
+output$Countryselect <- renderUI({
+  selectInput("Country", "Select Country", choices = unique(combined_one$Country))
+})
+
+output$CdPlot <- renderPlotly({
+  deaths_and_cases <- combined_one %>%
+    filter() %>%
+    filter(Country %in% input$Country) %>% 
+    ggplot( aes(x = `Median Number of HIV/AIDS Cases`, y = `Median Number of Deaths`, color = Country)) +
+    xlab("HIV/AIDS Median Cases") +
+    ylab("Median Number of Deaths") +
+    geom_point () +
+    theme_bw()
+})
 
 #----------------------------------------------------------------------------------------------------------
 # Olivia's code for the map
-library(maps)
-library(readr)
-library(leaflet)
-library(dplyr)
+
 us_map_data <- prevention_mother_to_child %>%
   select(Country, Percentage.Recieved_median) %>%
   group_by(Country) %>%
@@ -79,7 +81,10 @@ df <- world.cities %>%
   left_join(us_map_data, by = "Country") %>%
   na.omit()
 
-percent_received <- leaflet(df)%>%
+output$PercentReceived <- renderLeaflet({
+  leaflet(df)%>%
   addTiles()%>%
   addMarkers(label = ~Percentage.Recieved_median) 
+
+})
 }

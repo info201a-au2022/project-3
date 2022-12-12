@@ -3,8 +3,8 @@ library(ggplot2)
 library(plotly)
 library(lintr)
 
-estimates <- read.csv("../data/art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
-View(estimates)
+estimates <- read.csv("art_pediatric_coverage_by_country_clean.csv", stringsAsFactors = FALSE)
+#View(estimates)
 
 #renaming certain columns
 estimates <- estimates %>% 
@@ -34,7 +34,7 @@ estimates <- estimates[-c(141), ]
 estimates[-c(7, 59, 63, 77, 78, 79, 103, 125, 143), ]
 estimates <- subset(estimates, Country != "Spain")
 #checking and changing character to numeric 
-sapply(estimates, class)
+#sapply(estimates, class)
 estimates$`Reported number of children receiving ART` = as.numeric(as.character(estimates$`Reported number of children receiving ART`))
 
 #filtering down to specific columns 
@@ -46,7 +46,7 @@ children_art <- children_art %>%
   pivot_longer(!Country, names_to = "Type", values_to = "Count")
 #removing NA's
 children_art <- na.omit(children_art)
-View(children_art)
+#View(children_art)
 #plot
 children_art_plot <- ggplot(data = children_art) +
   geom_col(mapping = aes(x = Country,y = Count, fill = Type), position = "dodge") +
